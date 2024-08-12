@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:gc="http://www.example.com/gamingCommunity" targetNamespace="http://www.example.com/gamingCommunity" elementFormDefault="qualified">
+
+    <!-- Root element -->
+    <xs:element name="gamingCommunity">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="member" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <!-- Username with pattern restriction -->
+                            <xs:element name="username">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="[a-zA-Z0-9]{3,16}"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+
+                            <!-- Level as a positive integer with a minimum value -->
+                            <xs:element name="level">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:positiveInteger">
+                                        <xs:minInclusive value="1"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+
+                            <!-- Score as a positive integer -->
+                            <xs:element name="score" type="xs:positiveInteger"/>
+
+                            <!-- Email with pattern restriction -->
+                            <xs:element name="email">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+
+                            <!-- Optional elements with attributes -->
+                            <xs:element name="profile" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="bio" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="avatarUrl" type="xs:anyURI" minOccurs="0"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="visibility" use="optional">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:enumeration value="public"/>
+                                                <xs:enumeration value="private"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Nested achievements element -->
+                            <xs:element name="achievements" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="achievement" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="title" type="xs:string"/>
+                                                    <xs:element name="date" type="xs:date"/>
+                                                </xs:sequence>
+                                                <xs:attribute name="points" type="xs:positiveInteger" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

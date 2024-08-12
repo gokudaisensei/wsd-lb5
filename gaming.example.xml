@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="transform.xsl" type="text/xsl"?>
+<gc:gamingCommunity xmlns:gc="http://www.example.com/gamingCommunity"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.com/gamingCommunity gaming.xsd">
+
+    <gc:member>
+        <gc:username>PlayerOne</gc:username>
+
+        <gc:level>20</gc:level>
+
+        <gc:score>1500</gc:score>
+
+        <gc:email>playerone@example.com</gc:email>
+
+        <gc:profile visibility="public">
+            <gc:bio>A passionate gamer with a love for strategy games.</gc:bio>
+            <gc:avatarUrl>http://example.com/avatar1.jpg</gc:avatarUrl>
+        </gc:profile>
+
+        <gc:achievements>
+            <gc:achievement points="100">
+                <gc:title>First Blood</gc:title>
+                <gc:date>2023-01-15</gc:date>
+            </gc:achievement>
+            <gc:achievement points="200">
+                <gc:title>Master Strategist</gc:title>
+                <gc:date>2023-05-20</gc:date>
+            </gc:achievement>
+        </gc:achievements>
+    </gc:member>
+
+    <gc:member>
+        <gc:username>GamerGal</gc:username>
+
+        <gc:level>15</gc:level>
+
+        <gc:score>1200</gc:score>
+
+        <gc:email>gamergal@example.com</gc:email>
+
+        <gc:profile visibility="private">
+            <gc:bio>Enjoys adventure and role-playing games.</gc:bio>
+            <gc:avatarUrl>http://example.com/avatar2.jpg</gc:avatarUrl>
+        </gc:profile>
+
+        <gc:achievements>
+            <gc:achievement points="150">
+                <gc:title>Dragon Slayer</gc:title>
+                <gc:date>2023-03-10</gc:date>
+            </gc:achievement>
+        </gc:achievements>
+    </gc:member>
+
+</gc:gamingCommunity>
